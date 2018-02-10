@@ -141,7 +141,7 @@ public:
 
         checkpointData = (CCheckpointData) {
             {
-                {  0, uint256S("0x71ce8c55b109c2350157bbe71196f9ed9ebf1e81f6c74cb27c5ec4de6d003187")},
+                {  0, uint256S("71ce8c55b109c2350157bbe71196f9ed9ebf1e81f6c74cb27c5ec4de6d003187")},
 
             }
         };
@@ -195,24 +195,25 @@ public:
         // By default assume that the signatures in ancestors of this block are valid.
         consensus.defaultAssumeValid = uint256S("0xad8ff6c2f5580d2b50bd881e11312425ea84fa99f322bf132beb722f97971bba"); //153490
 
-        pchMessageStart[0] = 0xfd;
-        pchMessageStart[1] = 0xd2;
-        pchMessageStart[2] = 0xc8;
-        pchMessageStart[3] = 0xf1;
+        /**
+         * The message start string is designed to be unlikely to occur in normal data.
+         * The characters are rarely used upper ASCII, not valid as UTF-8, and produce
+         * a large 32-bit integer with any alignment.
+         */
+        pchMessageStart[0] = 0xa2;
+        pchMessageStart[1] = 0xb3;
+        pchMessageStart[2] = 0xc4;
+        pchMessageStart[3] = 0xd5;
         nDefaultPort = 19335;
-        nPruneAfterHeight = 1000;
+        nPruneAfterHeight = 100000;
 
-        genesis = CreateGenesisBlock(1486949366, 293345, 0x1e0ffff0, 1, 50 * COIN);
+        genesis = CreateGenesisBlock(1518267092, 376229, 0x1e0ffff0, 1, 50 * COIN);
         consensus.hashGenesisBlock = genesis.GetHash();
-        assert(consensus.hashGenesisBlock == uint256S("0x4966625a4b2851d9fdee139e56211a0d88575f59ed816ff5e6a63deb4e3e29a0"));
+        assert(consensus.hashGenesisBlock == uint256S("0x71ce8c55b109c2350157bbe71196f9ed9ebf1e81f6c74cb27c5ec4de6d003187"));
         assert(genesis.hashMerkleRoot == uint256S("0x52b2455696516c14fde6fb8bf13891f34a49b339b99aa863942e5cd54db71fc1"));
 
-        vFixedSeeds.clear();
-        vSeeds.clear();
-        // nodes with support for servicebits filtering should be at the top
-        vSeeds.emplace_back("testnet-seed.litecointools.com", true);
-        vSeeds.emplace_back("seed-b.litecoin.loshan.co.uk", true);
-        vSeeds.emplace_back("dnsseed-testnet.thrasher.io", true);
+        // Note that of those with the service bits flag, most only support a subset of possible options
+        vSeeds.emplace_back("118.190.94.180", true);
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,111);
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,196);
@@ -229,15 +230,15 @@ public:
 
         checkpointData = (CCheckpointData) {
             {
-                {2056, uint256S("17748a31ba97afdc9a4f86837a39d287e3e7c7290a08a1d816c5969c78a83289")},
+                {0, uint256S("71ce8c55b109c2350157bbe71196f9ed9ebf1e81f6c74cb27c5ec4de6d003187")},
             }
         };
 
         chainTxData = ChainTxData{
             // Data as of block 3351b6229da00b47ad7a8d7e1323b0e2874744b5296e3d6448293463ab758624 (height 153489)
-            1502953751,
-            382986,
-            0.01
+//            1502953751,
+//            382986,
+//            0.01
         };
 
     }
