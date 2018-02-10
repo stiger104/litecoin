@@ -7,3 +7,16 @@ install_name_tool -change libboost_filesystem.dylib /usr/local/lib/libboost_file
 install_name_tool -change libboost_program_options.dylib /usr/local/lib/libboost_program_options.dylib litecoin-qt
 install_name_tool -change libboost_thread.dylib /usr/local/lib/libboost_thread.dylib litecoin-qt
 install_name_tool -change libboost_chrono.dylib /usr/local/lib/libboost_chrono.dylib litecoin-qt
+
+python genesis.py -a scrypt -z "Time flies like an arrow. Fruit flies like a banana."
+04ffff001d01043454696d6520666c696573206c696b6520616e206172726f772e20467275697420666c696573206c696b6520612062616e616e612e
+algorithm: scrypt
+merkle hash: 52b2455696516c14fde6fb8bf13891f34a49b339b99aa863942e5cd54db71fc1
+pszTimestamp: Time flies like an arrow. Fruit flies like a banana.
+pubkey: 04678afdb0fe5548271967f1a67130b7105cd6a828e03909a67962e0ea1f61deb649f6bc3f4cef38c4f35504e51ec112de5c384df7ba0b8d578a4c702b6bf11d5f
+time: 1518267092
+bits: 0x1e0ffff0
+Searching for genesis hash..
+genesis hash found!
+nonce: 376229
+genesis hash: 71ce8c55b109c2350157bbe71196f9ed9ebf1e81f6c74cb27c5ec4de6d003187
